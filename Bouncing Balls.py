@@ -19,7 +19,6 @@ class Ball:
         self.position = position
         self.velocity = velocity
         self.mass = mass
-        "hello?"
         
 def checkColisions(ball_1, ball_2):
     colisions = 0
@@ -66,7 +65,6 @@ def checkColisions(ball_1, ball_2):
     #plt.plot(time, kinetic_energy_1)
     #plt.yscale("log", base=0.1)
     plt.show()
-    #comentario
     
 
 digits = 3
