@@ -12,12 +12,14 @@ def colision(ball_1, ball_2):
     newBall_2Velocity = ((2*ball_1.mass) / (ball_1.mass + ball_2.mass)*ball_1.velocity) - (((ball_1.mass - ball_2.mass) / (ball_1.mass + ball_2.mass)) * ball_2.velocity)
     ball_1.velocity = newBall_1Velocity
     ball_2.velocity = newBall_2Velocity
+    linha_inutil = "hehehehe"
     
 class Ball:
     def __init__(self, position, velocity, mass):
         self.position = position
         self.velocity = velocity
         self.mass = mass
+        "hello?"
         
 def checkColisions(ball_1, ball_2):
     colisions = 0
@@ -64,6 +66,7 @@ def checkColisions(ball_1, ball_2):
     #plt.plot(time, kinetic_energy_1)
     #plt.yscale("log", base=0.1)
     plt.show()
+    #comentario
     
 
 digits = 3
