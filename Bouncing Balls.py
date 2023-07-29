@@ -41,6 +41,7 @@ def checkColisions(ball_1, ball_2):
             ball_1.velocity = ball_1.velocity * -1
             time_temp += timeToWall
             time.append(time_temp)
+        #um comentario
         # will colide with block
         else:
             blocksPositionOnColide = ball_1.position + (ball_1.velocity * timeToBallColision)
