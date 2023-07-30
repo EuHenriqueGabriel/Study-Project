@@ -2,7 +2,7 @@
 """
 Created on Tue Jul 25 10:14:43 2023
 
-@author: LuizH
+@author: I_Henri
 """
 import matplotlib.pyplot as plt
 import math
@@ -60,13 +60,10 @@ def checkColisions(ball_1, ball_2):
     plt.title("Phase diagram")
     plt.ylabel("Ball 2 Velocity")
     plt.xlabel("Ball 1 Velocity")
-    #plt.plot(time, kinetic_energy_2)
-    #plt.plot(time, kinetic_energy_1)
-    #plt.yscale("log", base=0.1)
     plt.show()
     
 
-digits = 3
+digits = 6
 for i in range(digits):
     ball_2mass = math.pow(100, i)
     ball_1 = Ball(7, 0, 1)
