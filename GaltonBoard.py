@@ -2,7 +2,7 @@
 """
 Created on Sat Aug  5 10:05:38 2023
 
-@author: EuHenri
+@author: I_Henri
 """
 import numpy as np
 import random
@@ -29,7 +29,6 @@ def frequencyCalculator(frequency, n, balls, positions):
     return filteredFrequency, filteredPositions
     
 def plot(positions, n, frequency):
-    #plt.plot(250*np.exp(-1*((positions+n)**2)/25))
     plt.plot(positions, frequency, 'o', color='black')
     plt.show()
     
