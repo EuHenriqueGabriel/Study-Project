@@ -67,14 +67,7 @@ class Status:
         self.p_1_score = 0
         self.p_2_score = 0
 
-def main():
-    gameStatus = Status()
-    janela = Tk()
-    janela.title("TicTacToe")
-    title_ = Label(janela, text= "TicTacToe", fg='white', bg='black')
-    title_.grid(column=1, row=3, padx=10, pady=10)
-    janela['bg'] = '#856ff8'
-    
+def createButtons(janela, gameStatus, title_, playersScore):
     button_1 = Button(janela, text=" ", fg='white', bg='white')
     button_1['command'] = lambda: mark(button_1, gameStatus, board, title_, playersScore)
     button_1.grid(column=0, row=2, padx=10, pady=10)
@@ -102,17 +95,24 @@ def main():
     button_9 = Button(janela, text=" ", fg='white', bg='white')
     button_9['command'] = lambda: mark(button_9, gameStatus, board, title_, playersScore)
     button_9.grid(column=2, row=0, padx=10, pady=10)
-    
     board = [button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9]
-    
     resetButton = Button(janela, text='PLAY')
     resetButton['command'] = lambda: resetBoard(board, gameStatus, title_, resetButton)
     resetButton.grid(column=1, row=4, padx=10, pady=10)
     
+def main():
+    gameStatus = Status()
+    janela = Tk()
+    janela.title("TicTacToe")
+    title_ = Label(janela, text= "TicTacToe", fg='white', bg='black')
+    title_.grid(column=1, row=3, padx=10, pady=10)
+    janela['bg'] = '#856ff8'
     playersScore = [Label(janela, text= "P-1: " + str(gameStatus.p_1_score), fg='white', bg='black'), Label(janela, text= "P-2: " + str(gameStatus.p_2_score), fg='white', bg='black')]
     playersScore[0].grid(column=0, row=4, padx=10, pady=10)
     playersScore[1].grid(column=2, row=4, padx=10, pady=10)
+    createButtons(janela, gameStatus, title_, playersScore)
     janela.mainloop()
+    
     
     
 main()
