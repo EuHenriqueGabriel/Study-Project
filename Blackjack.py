@@ -360,15 +360,16 @@ def hit(startButton, doubleDownButton, hitButton, splitButton, standButton, doub
                 while countPoints(dealer) < 17:
                     dealer.getAcard(deck)
                 dealer.displayCards()
-                if len(player.hand_2) != 0:
-                    if countPoints(dealer) < countPoints_2(player):
-                        player.money += player.potMoney_2*2
-                        victoryMsg_2()
-                    if countPoints(dealer) > countPoints_2(player):
-                        defeatMsg_2()
-                    if countPoints(dealer) == countPoints_2(player):
-                        drawMsg_2()
-                        player.money += player.potMoney_2
+                if countPoints_2(player) < 22:
+                    if len(player.hand_2) != 0:
+                        if countPoints(dealer) < countPoints_2(player):
+                            player.money += player.potMoney_2*2
+                            victoryMsg_2()
+                        if countPoints(dealer) > countPoints_2(player):
+                            defeatMsg_2()
+                        if countPoints(dealer) == countPoints_2(player):
+                            drawMsg_2()
+                            player.money += player.potMoney_2
         bustMsg()
         cleanButtons(doubleDownButton, hitButton, splitButton, standButton,  doubleDownButton_2, hitButton_2, standButton_2)
         showNewHandButton(startButton)
@@ -378,15 +379,16 @@ def stand(startButton, doubleDownButton, hitButton, splitButton, standButton, do
         dealer.getAcard(deck)
     dealer.displayCards()
     if countPoints(dealer) < 22:
-        if len(player.hand_2) != 0:
-            if countPoints(dealer) < countPoints_2(player):
-                player.money += player.potMoney_2*2
-                victoryMsg_2()
-            if countPoints(dealer) > countPoints_2(player):
-                defeatMsg_2()
-            if countPoints(dealer) == countPoints_2(player):
-                drawMsg_2()
-                player.money += player.potMoney_2
+        if countPoints_2(player) < 22:
+            if len(player.hand_2) != 0:
+                if countPoints(dealer) < countPoints_2(player):
+                    player.money += player.potMoney_2*2
+                    victoryMsg_2()
+                if countPoints(dealer) > countPoints_2(player):
+                    defeatMsg_2()
+                if countPoints(dealer) == countPoints_2(player):
+                    drawMsg_2()
+                    player.money += player.potMoney_2
         if countPoints(dealer) < countPoints(player):
             player.money += player.potMoney*2
             victoryMsg()
