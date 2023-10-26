@@ -21,4 +21,4 @@ jobs:
           spec: 'Blackjack.py'
           # requirements: 'src/requirements.txt'
           upload_exe_with_name: 'Blackjack.exe'
-          options: --onefile, --name "Blackjack.exe", --windowed, 
+          options: --onefile, -w, --name "Blackjack.py"
