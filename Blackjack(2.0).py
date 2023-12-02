@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Sat Dec  2 13:29:19 2023
+
+@author: LuizH
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Wed Oct 18 18:42:31 2023
 
 @author: I_Henri
@@ -13,9 +20,9 @@ import os
 import random
 
 
+
 class Player:
     def __init__(self):
-        self.id = 0
         self.cards = []
         self.potMoney = 0
         self.isdealer = True
@@ -40,7 +47,7 @@ class Player:
     def displayCards_2(self):
         self.cards_2.clear()
         for i in range(len(self.hand_2)):
-            img_2 = PhotoImage(master=window, file='./deck_p/'+self.hand_2[i])
+            img_2 = PhotoImage(file='./deck_p/'+self.hand_2[i])
             self.cards_2.append(Label(window, image=img_2))
             self.cards_2[i].Photo = img_2
             self.cards_2[i].grid(column=i, row=7, padx=5)
@@ -50,16 +57,15 @@ class Player:
         self.cards.clear()
         if self.isdealer:
             for i in range(len(self.hand)):
-                img = PhotoImage(master=window, file='./deck_p/'+self.hand[i])
+                img = PhotoImage(file='./deck_p/'+self.hand[i])
                 self.cards.append(Label(window, image=img))
                 self.cards[i].Photo = img
                 self.cards[i].grid(column=i, row=2, padx=5)
                 self.cards[i]['bg'] = '#01550a'
         if not self.isdealer:
             for i in range(len(self.hand)):
-                img = PhotoImage(master=window, file='./deck_p/'+self.hand[i])
-                self.cards.append(Label(window))
-                self.cards[i]['image'] = img
+                img = PhotoImage(file='./deck_p/'+self.hand[i])
+                self.cards.append(Label(window, image=img))
                 self.cards[i].Photo = img
                 self.cards[i].grid(column=i, row=5, padx=5)
                 self.cards[i]['bg'] = '#01550a'
@@ -93,9 +99,6 @@ class Player:
         if "ace" in player.hand[i]:
             value = 1
         return value
-    
-def close(window):
-    window.destroy()
         
 def newHand(newHandButton, startButton):
     newHandButton.grid_forget()
@@ -255,8 +258,8 @@ def countPoints(user):
     return totalPoints
     
 def dealerInitialHand():
-    card_1 = PhotoImage(master=window, file='./backside.png')
-    card_2 = PhotoImage(master=window, file='./deck_p/'+dealer.hand[0])
+    card_1 = PhotoImage(file='./backside.png')
+    card_2 = PhotoImage(file='./deck_p/'+dealer.hand[0])
     dealerCard_1 = Label(window, image=card_1)
     dealerCard_1.Photo = card_1
     dealerCard_1.grid(column=1, row=2)
@@ -436,9 +439,6 @@ def startGame(startButton, player, dealer):
     standButton = Button(window, text='Stand', font='roman 10', fg='white', bg='grey')
     standButton.grid(column=2, row=4)
     standButton['command'] = lambda: stand(startButton, doubleDownButton, hitButton, splitButton, standButton, doubleDownButton_2, hitButton_2, standButton_2)
-    quitButton = Button(window, text='Quit', font='roman 12', fg='red', bg='grey')
-    quitButton.grid(column=5, row=1)
-    quitButton['command'] = lambda: close(window)
     player.money = player.money - 1
     player.potMoney = 1
     player.potMoney_2 = 0
