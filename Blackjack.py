@@ -293,6 +293,7 @@ def setWindow(window, player):
     startButton = Button(window, text='Start', font='roman 16 bold', fg='white', bg='grey')
     startButton['command'] = lambda: startGame(startButton, player, dealer)
     startButton.grid(column=1, row=3, padx= 650, pady=300)
+    
     newHandButton = Button()
     
 def doubleDown_2(startButton, doubleDownButton, hitButton, splitButton, standButton, doubleDownButton_2, hitButton_2, standButton_2):
